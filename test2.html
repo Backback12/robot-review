@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js webgl - effects - ascii</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="main.css">
+	</head>
+
+	<body>
+		<div id="info"><a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> - effects - ascii</div>
+
+		<!-- <script type="importmap">
+			{
+				"imports": {
+					"three": "../build/three.module.js",
+					"three/addons/": "./jsm/"
+				}
+			}
+		</script> -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.171.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.171.0/examples/jsm/"
+        }
+      }
+    </script>
+
+		<script type="module">
+
+import * as THREE from 'three';
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+renderer.setAnimationLoop( animate );
+document.body.appendChild( renderer.domElement );
+
+
+const myGroup = new THREE.Group();
+
+const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const cube = new THREE.Mesh( geometry, material );
+// scene.add( cube );
+
+const edges = new THREE.EdgesGeometry(geometry); // Extract edges
+const lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff }); // Pure white lines
+// const lineMaterial = new THREE.LineMaterial({ color : 0xffffff, linewidth: 0.01 });
+const edgeLines = new THREE.LineSegments(edges, lineMaterial); // Create the line segments
+// scene.add(edgeLines);
+
+myGroup.add(cube);
+myGroup.add(edgeLines);
+scene.add(myGroup);
+
+
+camera.position.z = 5;
+
+
+function animate() {
+
+	// cube.rotation.x += 0.01;
+	// cube.rotation.y += 0.01;
+  myGroup.rotation.x += 0.01;
+  myGroup.rotation.y += 0.01;
+
+	renderer.render( scene, camera );
+
+}
+
+		</script>
+
+	</body>
+</html>

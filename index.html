@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TESTING WEBSITE</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Make your Spotify Top Tracks Cassette Mixtape">
+    <meta name="keywords" content="Spotify, Cassette, Mixtape, CassettifyMixtape, Cassettify">
+    <meta name="author" content="Connor Pagtakhan">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
+    
+    <!-- Import Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2492891866286091" crossorigin="anonymous"></script>
+    <script src="./config.js"></script>
+
+    <!-- Import Styles -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- <link href="https://fonts.cdnfonts.com/css/futura-primer" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.cdnfonts.com/css/utendo" rel="stylesheet"> -->
+    <link rel="preload" href="./styles.css" as="style" />
+    <link href="./styles.css" rel="stylesheet">
+    
+    
+    
+</head>
+<body class="d-flex flex-column">
+
+  <!-- background pattern -->
+  <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position: absolute; z-index: -999;">
+    <defs>
+      <pattern id="x-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
+        <!-- <path d="M0,0 L10,10 M10,0 L0,10" stroke="#00FF00" stroke-width="1" /> -->
+        <circle cx="5" cy="5" r="1" fill="#009900" />
+        <circle cx="15" cy="15" r="1" fill="#009900" />
+        <!-- <circle cx="9" cy="6" r="1" fill="#000099" /> -->
+        <!-- <circle cx="13" cy="7" r="1" fill="#990000" /> -->
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#x-pattern)" />
+  </svg>
+
+
+
+
+<!-- Top Navbar -->
+<nav class="navbar navbar-expand-sm bg-secondary" style="padding: 8px 16px">
+    <a class="navbar-brand" style="padding: 8px 16px;" href="/">
+        <img src="/img/favicon.ico" width="30" height="30" alt="">
+        MixtapeCircuit.xyz
+    </a>
+    <div class="collapse navbar-collapse nav-fill"></div>
+    <a class="navbar-item" href="https://www.spotify.com/" target="_blank" style="padding: 8px 16px;">
+        <img src="/img/Spotify_Logo_RGB_Green.png" width="100" height="30" alt="Spotify-Logo">
+    </a>
+</nav>
+
+
+
+
+
+<div class="container bg-secondary m-5 flex-grow-1" id="logged-out-window">
+    <!-- Title  -->
+    <div class="container row featurette text-center h-100">
+        <div class="align-self-center">
+            <!-- <img class="logo" src="img/logo-full.png" alt="CassettifyMixtapeLogo"> -->
+            <h1 style="padding: 10px 10px;"><b>Judge Your Music Taste</b></h1>
+            <!-- <button class="btn btn-outline-light login-button" id="auth"> -->
+            <button class="btn btn-dark login-button" id="auth">
+                Log in with Spotify
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="container bg-secondary m-5 flex-grow-1" id="logged-in-window" style="display: none;">
+  <!-- Title  -->
+  <div class="container row featurette h-100">
+      <div class="align-self-center" id="chat-log">
+          <!-- <h1 class="text-center" id="typeme">Nice job bro you logged in</h1> -->
+          <div class="card p-1 my-1 bg-dark text-light"><p class="m-0" id="typeme"></p></div>
+          <div class="card p-1 my-1">whats this</div>
+
+
+
+
+          
+          <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+          
+              <pattern id="Pattern" x="0" y="0" width=".2" height=".2">
+                <circle
+                  cx="25"
+                  cy="25"
+                  r="2"
+                  fill="#00FF00"
+                  fill-opacity="1" />
+              </pattern>
+            </defs>
+          
+            <rect fill="url(#Pattern)" stroke="none" width="200" height="200" />
+          </svg>
+
+
+          <!-- <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg" style="position: absolute;">
+            <defs>
+              <pattern id="x-pattern" width="10" height="10" patternUnits="userSpaceOnUse">
+                <path d="M0,0 L10,10 M10,0 L0,10" stroke="#00FF00" stroke-width="1" />
+              </pattern>
+            </defs>
+          </svg> -->
+          <!-- <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg" style="position: absolute;">
+            <defs>
+              <pattern id="x-pattern" width="10" height="10" patternUnits="userSpaceOnUse">
+                <path d="M0,0 L10,10 M10,0 L0,10" stroke="white" stroke-width="1" />
+              </pattern>
+            </defs>
+          </svg> -->
+          
+
+      </div>
+  </div>
+</div>
+
+
+
+<!-- Footer -->
+<footer class="bg-dark text-light p-3 d-flex flex-row justify-content-evenly align-items-center">
+    <div class="text-center">
+        Made with
+        <img src="img/Spotify_Logo_RGB_White.png" width="100" height="30" alt="Spotify-Logo">
+    </div>
+    <div class="">
+        <a href="faq/" >FAQs</a>
+        <a href="privacy/">Privacy Policy</a>
+    </div>
+</footer>
+
+
+<script>
+"use strict";
+
+function authorizeUser() {
+    var scopes = ['user-top-read'];
+    var url = 'https://accounts.spotify.com/authorize?client_id=' + SPOTIFY_CLIENT_ID +
+        '&response_type=token' +
+        '&scope=' + encodeURIComponent(scopes) +
+        '&redirect_uri=' + encodeURIComponent(SPOTIFY_REDIRECT_URI) +
+        '&show_dialog=true';
+    document.location = url;
+}
+
+/*
+ * parseArgs()
+ * Reads hashes (#)  or searches (?) in the url
+ */
+function parseArgs() {
+    var hash = location.hash.length == 0 ? location.search.replace('?', '') : location.hash.replace('#', '');
+    var all = hash.split('&');
+    var args = {};
+    _.each(all, function(keyvalue) {
+        var kv = keyvalue.split('=');
+        var key = kv[0];
+        var val = kv[1];
+        args[key] = val;
+    });
+    return args;
+}
+
+
+function typeWriterOld(target, message) {
+  target.innerHTML = '';
+  typeWriter_(target, message)
+}
+function typeWriterOld_(target, message) {
+  
+  if (target.innerHTML.length < message.length) {
+    const index = target.innerHTML.length + 1;
+    target.innerHTML = message.substring(0, index)
+
+    if (message[index-1] == '\n' ||
+        /^[.!?] $/.test(message.substring(index-1, index+1))) {
+      // pause longer
+      setTimeout(function() {typeWriter_(target, message)}, 400)
+    }
+    else {
+      setTimeout(function() {typeWriter_(target, message)}, 40)
+    }
+  }
+  else {
+    // done message. Remove interval!
+    // clearInterval(typeWriterInterval);
+  }
+}
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function typeWriter(target, message) {
+  target.innerHTML = "";
+  await typeWriterStep(target, message);
+}
+
+async function typeWriterStep(target, message) {
+  const currentLength = target.innerHTML.length;
+
+  if (currentLength < message.length) {
+    const index = currentLength + 1;
+    target.innerHTML = message.substring(0, index);
+
+    if (
+      message[index - 1] === "\n" ||
+      /^[.!?] $/.test(message.substring(index - 1, index + 1))
+    ) {
+      await delay(500); // longer 400ms pause
+    } else {
+      await delay(20); // default 40ms pause
+    }
+
+    await typeWriterStep(target, message); // Continue typing
+  } else {
+    // done message
+  }
+}
+
+async function postMessage(message) {
+  // create object
+  var tempDiv = document.createElement('div');
+  tempDiv.innerHTML = 
+  
+  `<div class="card p-1 my-1 bg-dark text-light message">
+    <p class="m-0">
+      asdasd
+    </p>
+  </div>`;
+
+  var newChild = tempDiv.firstChild
+  
+  document.getElementById('chat-log').appendChild(newChild);
+  // append to thing
+
+  // do typing
+  await typeWriter(newChild.querySelector('p'), message);
+}
+
+$(document).ready(function() {
+    var args = parseArgs();
+    if ('error' in args) {
+        // Error in user authorization
+        // alert("Error in getting Spotify authorization");
+        if (args['error'] == "access_denied") {
+          // document.getElementById('access_denied').style.display = 'block';
+        }
+        else if (args['error'] == "invalid_token") {
+          // document.getElementById('invalid_token').style.display = 'block';
+        }
+    }
+    else if ('access_token' in args) {
+        // User is authorized!!!
+        // window.location = 'generate' + window.location.hash;
+        document.getElementById('logged-in-window').style.display = 'block';
+        document.getElementById('logged-out-window').style.display = 'none';
+      }
+      else {
+        // user is not authenticated, open default page
+        document.getElementById('logged-in-window').style.display = 'none';
+        document.getElementById('logged-out-window').style.display = 'block';
+    }
+
+    (async function() {
+      await postMessage("BAZINGA")
+      // await typeWriter(document.getElementById('typeme'), "DOES THIS WORK THATS CRAZY.\nNewlines? Sentences?\nGet some... Pauses in there... but dot dot dot should be as long as a dot... Same with multiple exclaimation marks... GOOD LUCK!!!");
+      await postMessage("DOES THIS WORK THATS CRAZY.\nNewlines? Sentences?\nGet some... Pauses in there... but dot dot dot should be as long as a dot... Same with multiple exclaimation marks... GOOD LUCK!!!")
+      await delay(2000);
+      // await typeWriter(document.getElementById('typeme'), "DOES THIS WORK THATS CRAZY.\nNewlines? Sentences?\nGet some... Pauses in there... but dot dot dot should be as long as a dot... Same with multiple exclaimation marks... GOOD LUCK!!!");
+      await postMessage("DOES THIS WORK THATS CRAZY.\nNewlines? Sentences?\nGet some... Pauses in there... but dot dot dot should be as long as a dot... Same with multiple exclaimation marks... GOOD LUCK!!!")
+    })();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    $("#auth").click(function() {
+      authorizeUser();
+    })
+
+
+
+
+    // typeWriter(document.getElementById('typeme'), "DOES THIS WORK THATS CRAZY.\nNewlines? Sentences?\nGet some... Pauses in there... but dot dot dot should be as long as a dot... Same with multiple exclaimation marks... GOOD LUCK!!!")
+
+    
+});
+
+
+</script>
+</body>
+</html>

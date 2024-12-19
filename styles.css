@@ -1,0 +1,15 @@
+body {
+  font-family: 'Utendo', 'comic sans', sans-serif;
+  /* background-image: url("./img/scanlines.png"); */
+  /* background-size: cover; */
+  /* background-size: 300%; */
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+
+}
+
+.message {
+  max-width: 500px;
+  /* padding-left: 50px !important; */
+}

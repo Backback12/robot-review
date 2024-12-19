@@ -1,0 +1,3 @@
+SPOTIFY_CLIENT_ID = 'b545d3de534f419f8b898ba78ffb4edb';
+SPOTIFY_REDIRECT_URI = 'http://127.0.0.1:5500/';
+SPOTIFY_SCOPES = ['user-top-read'];
